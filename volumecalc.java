@@ -1,50 +1,59 @@
 import java.util.Scanner;
 
-public class volumecalc {
+public class volumecalc{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         double radius;
-
         double height;
         double volume;
         String choice;
-        boolean continueCalculation;
+        boolean Continuecalculation = true;
 
-        System.out.println("CYLINDER VOLUME CALCULATOR! ");
+        //START
 
-        do {
+        System.out.println("CYLINDER VOLUME CALCULATOR!");
 
-            // Input
+        while(Continuecalculation){
 
-            System.out.print("Enter the radius of the cylinder: ");
-            radius = sc.nextDouble();
-            if (!sc.hasNextDouble()) {
-                System.out.println("Invalid! Please enter a valid number.");
-                sc.nextLine();
-                return;
-            }
+        //INPUT
 
-            System.out.print("Enter the height of the cylinder: ");
-            height = sc.nextDouble();
-            if (!sc.hasNextDouble()) {
-                System.out.println("Invalid! Please enter a valid number.");
-                sc.nextLine();
-                return;
-            }
+            System.out.println("Enter radius of the cylinder: ");
+                if(!sc.hasNextDouble()){
+                    System.out.println("Please enter a valid radius of the cylinder! ");
+                    return;
+                }else{
+                    radius = sc.nextDouble();
+                }
 
-            // Process
+            System.out.println("Enter height of the cylinder: ");
+                if(!sc.hasNextDouble()){
+                    System.out.println("Please enter a valid height of the cylinder! ");
+                    return;
+                }else {
+                    height = sc.nextDouble();
+                }
+
+        //PROCESS
+
             volume = 3.14159 * (radius * radius) * height;
 
-            // Output
-            System.out.println("The volume of the cylinder is: " + volume);
+        //OUTPUT
 
-            // Loop end
-            System.out.print("Do you want to continue (y/n)?: ");
-            choice = sc.nextLine().toLowerCase();
-            continueCalculation = choice.equals("y");
-        }while (continueCalculation);
+            System.out.println("Volume of the cylinder: " + volume);
 
-        sc.close();
+
+        //LOOP END
+            System.out.print("do you want to perform another calculation? (y/n): ");
+            choice = sc.next().toLowerCase();
+                if (!choice.equals("y")) {
+                    Continuecalculation = false;
+                }
+
+
+
+        }
+            System.out.println("THANK YOU! ");
+
     }
 }
